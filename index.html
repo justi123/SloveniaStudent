@@ -36,6 +36,7 @@
 
     *{box-sizing:border-box}
     html{scroll-behavior:smooth;}
+
     body{
       margin:0;
       font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
@@ -55,6 +56,7 @@
       border:1px solid var(--border);
       border-radius:18px;
       box-shadow:var(--shadow);
+      backdrop-filter:blur(10px);
     }
 
     .brand h1{margin:0;font-size:18px;}
@@ -70,11 +72,9 @@
     .btn.primary{background:rgba(77,163,255,0.16)}
 
     .card{
-      margin-top:14px;
-      background:var(--surface);
+      margin-top:14px;background:var(--surface);
       border:1px solid var(--border);
-      border-radius:18px;
-      padding:16px;
+      border-radius:18px;padding:16px;
       box-shadow:var(--shadow);
     }
 
@@ -82,54 +82,44 @@
     .muted{color:var(--muted);font-size:13px;line-height:1.55;}
 
     .helpBox{
-      margin-top:12px;
-      padding:12px;
-      border-radius:16px;
+      margin-top:12px;padding:12px;border-radius:16px;
       border:1px solid var(--border);
       background:var(--surface2);
-      color:var(--muted);
-      font-size:12.8px;
+      color:var(--muted);font-size:12.8px;
     }
 
     details summary{
       cursor:pointer;
-      margin-top:6px;
       font-weight:600;
+      margin-top:6px;
     }
 
     .linkBtn{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      gap:8px;
-      padding:10px 12px;
-      border-radius:12px;
+      display:inline-flex;align-items:center;justify-content:center;
+      gap:8px;padding:10px 12px;border-radius:12px;
       border:1px solid rgba(77,163,255,0.28);
       background:rgba(77,163,255,0.12);
-      color:var(--text);
-      font-size:13px;
+      color:var(--text);font-size:13px;
       text-decoration:none;
     }
 
     footer{
-      margin-top:14px;
-      text-align:center;
-      color:var(--muted);
-      font-size:12px;
+      margin-top:14px;text-align:center;
+      color:var(--muted);font-size:12px;
     }
 
     .floatingJobs{
       position:fixed;
       right:16px;
       bottom:20px;
+      z-index:999;
       background:linear-gradient(135deg,#22c55e,#16a34a);
-      color:#fff;
+      color:#fff;border:none;
       padding:14px 18px;
       border-radius:999px;
-      border:none;
       font-size:14px;
+      box-shadow:0 16px 40px rgba(0,0,0,.35);
       cursor:pointer;
-      z-index:999;
     }
   </style>
 </head>
@@ -165,10 +155,7 @@
         <li>Accommodation proof</li>
       </ul>
     </details>
-    <button class="linkBtn"
-      onclick="openMap('University of Maribor International Office',46.5595,15.6397)">
-      📍 Open Location
-    </button>
+    <button class="linkBtn" onclick="openMap('University of Maribor International Office',46.5595,15.6397)">📍 Open Location</button>
   </div>
 
   <div class="helpBox">
@@ -182,10 +169,7 @@
         <li>University confirmation</li>
       </ul>
     </details>
-    <button class="linkBtn"
-      onclick="openMap('Upravna Enota Maribor',46.5547,15.6459)">
-      📍 Open Location
-    </button>
+    <button class="linkBtn" onclick="openMap('Upravna Enota Maribor',46.5547,15.6459)">📍 Open Location</button>
   </div>
 </section>
 
@@ -205,10 +189,7 @@
         <li>University letter</li>
       </ul>
     </details>
-    <button class="linkBtn"
-      onclick="openMap('Finančna uprava RS Maribor',46.5539,15.6463)">
-      📍 Open Location
-    </button>
+    <button class="linkBtn" onclick="openMap('Finančna uprava RS Maribor',46.5539,15.6463)">📍 Open Location</button>
   </div>
 
   <div class="helpBox">
@@ -222,10 +203,7 @@
         <li>Insurance papers</li>
       </ul>
     </details>
-    <button class="linkBtn"
-      onclick="openMap('ZZZS Maribor',46.5561,15.6442)">
-      📍 Open Location
-    </button>
+    <button class="linkBtn" onclick="openMap('ZZZS Maribor',46.5561,15.6442)">📍 Open Location</button>
   </div>
 
   <div class="helpBox">
@@ -239,10 +217,7 @@
         <li>Enrollment proof</li>
       </ul>
     </details>
-    <button class="linkBtn"
-      onclick="openMap('Studentski servis Maribor')">
-      📍 Open Location
-    </button>
+    <button class="linkBtn" onclick="openMap('Studentski servis Maribor')">📍 Open Location</button>
   </div>
 </section>
 
@@ -260,21 +235,15 @@
         <li>Student ID</li>
       </ul>
     </details>
-    <button class="linkBtn"
-      onclick="openMap('Marprom Bus Card Office Maribor')">
-      📍 Open Location
-    </button>
+    <button class="linkBtn" onclick="openMap('Marprom Bus Card Office Maribor')">📍 Open Location</button>
   </div>
 </section>
 
-<!-- CONTACT (UNCHANGED) -->
+<!-- 📧 CONTACT (UNCHANGED) -->
 <section class="card">
   <h2>✅ Contact Information</h2>
   <p class="muted">I usually reply within 24–48 hours.</p>
-  <a class="linkBtn"
-     href="mailto:mail2justi@gmail.com?subject=Support%20-%20Slovenia%20Student%20Checklist">
-     ✉️ Email Me
-  </a>
+  <a class="linkBtn" href="mailto:mail2justi@gmail.com?subject=Support%20-%20Slovenia%20Student%20Checklist">✉️ Email Me</a>
 </section>
 
 <footer>
@@ -289,6 +258,7 @@
 <button class="floatingJobs" onclick="openNearbyJobs()">💼 Open Nearby Jobs</button>
 
 <script>
+/* THEME */
 function toggleTheme(){
   const t=document.body.getAttribute("data-theme")==="light"?"dark":"light";
   document.body.setAttribute("data-theme",t);
@@ -296,6 +266,7 @@ function toggleTheme(){
 }
 document.body.setAttribute("data-theme",localStorage.getItem("jj_theme")||"dark");
 
+/* MAP */
 function openMap(place,lat,lng){
   const url = lat && lng
     ? `https://www.google.com/maps/search/?api=1&query=${lat},${lng}`
@@ -303,8 +274,22 @@ function openMap(place,lat,lng){
   window.open(url,"_blank");
 }
 
+/* AUTO CITY DETECT (SAFE) */
+fetch("https://ipapi.co/json/")
+  .then(r=>r.json())
+  .then(d=>console.log("Detected city:",d.city))
+  .catch(()=>{});
+
+/* JOBS */
 function openNearbyJobs(){
   openMap("student jobs near me");
+}
+
+/* NIYO CLICK TRACK (KEPT) */
+function trackNiyoClick(){
+  let c=Number(localStorage.getItem("niyo_clicks")||0)+1;
+  localStorage.setItem("niyo_clicks",c);
+  console.log("NIYO clicks:",c);
 }
 </script>
 
